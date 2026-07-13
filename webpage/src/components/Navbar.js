@@ -19,8 +19,8 @@ function TikTokIcon({ size = 20, className = '' }) {
 
 function Navbar() {
   return (
-    <div className='w-full fixed top-0 my-8 flex z-30 justify-center items-center'>
-        <div className='bg-black/50 backdrop-blur-xl w-[90%] py-6 px-6 md:px-10 flex items-center justify-between rounded-full border border-color'>
+    <div className='w-full fixed top-0 my-4 flex z-30 justify-center items-center'>
+        <div className='bg-black/50 backdrop-blur-xl w-[95%] py-4 px-6 md:px-10 flex items-center justify-between rounded-xl border border-color'>
             <div className='font-black text-2xl'>
                 Thea
                 <span className='text-3xl accent-color'>Solutions</span>      
