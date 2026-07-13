@@ -45,17 +45,14 @@ function Footer() {
         delay={0.5}
         transition={{duration: 1}}
         className='w-full lg:container mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row justify-between items-center gap-8'>
-        <div className='font-black text-2xl'>
-                Thea
-                <span className='text-3xl accent-color'>Solutions</span>      
-            </div>
+        <img src='/dark_tranStacked_logo.png' alt='Thea Solutions' className='h-56 md:h-64 w-auto' />
             <div className='w-fit gap-y-4 gap-x-6 text-lg flex justify-end opacity-70 flex-wrap'>
                 <Link href='/'>About</Link>
                 <Link href='/'>Services</Link>
-                <Link href='/'>Pricing</Link>
-                <Link href='/'>Testimonials</Link>
+                {/* <Link href='/'>Pricing</Link> */}
+                {/* <Link href='/'>Testimonials</Link> */}
                 <Link href='/'>FAQ</Link>
-                <Link href='/'>Blog</Link>
+                {/* <Link href='/'>Blog</Link> */}
                 <Link href='/'>Contact</Link>
             </div>
             <div className='flex gap-4'>

@@ -19,19 +19,16 @@ function TikTokIcon({ size = 20, className = '' }) {
 
 function Navbar() {
   return (
-    <div className='w-full fixed top-0 my-4 flex z-30 justify-center items-center'>
-        <div className='bg-black/50 backdrop-blur-xl w-[95%] py-4 px-6 md:px-10 flex items-center justify-between rounded-xl border border-color'>
-            <div className='font-black text-2xl'>
-                Thea
-                <span className='text-3xl accent-color'>Solutions</span>      
-            </div>
+    <div className='w-full fixed top-0 my-1 flex z-30 justify-center items-center'>
+        <div className='bg-black/50 backdrop-blur-xl w-[95%] py-1 px-6 md:px-10 flex items-center justify-between rounded-xl border border-color'>
+            <img src='/dark_tranStacked_logo.png' alt='Thea Solutions' className='h-24 md:h-28 w-auto' />
             <div className='w-fit hidden items-center gap-y-4 gap-x-6 text-lg md:flex'>
                 <Link href='/'>About</Link>
                 <Link href='/'>Services</Link>
-                <Link href='/'>Pricing</Link>
-                <Link href='/'>Testimonials</Link>
+                {/* <Link href='/'>Pricing</Link> */}
+                {/* <Link href='/'>Testimonials</Link> */}
                 <Link href='/'>FAQ</Link>
-                <Link href='/'>Blog</Link>
+                {/* <Link href='/'>Blog</Link> */}
                 <Link href='/'>Contact</Link>
                 <div className='flex gap-3 ml-4'>
                     <Link href='https://www.instagram.com/theasolutions_?igsh=ODc3ZmFrN2tkbDYw' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
