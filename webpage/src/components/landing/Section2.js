@@ -23,7 +23,7 @@ function Section2() {
         </div>
         <div className='relative w-full p-5 md:px-10 py-4 gap-4 lg:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             <LandingCard/>
-            <LandingCard/>
+            <LandingCard/> 
             <LandingCard/>
             <LandingCard/>
             <LandingCard/>
