@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Primary';
+  src: url(../fonts/PrimaryFont.ttf) format('truetype');
+}
+
+body {
+  font-family: 'Primary';
+}
+.bg-color {
+  background-color: var(--bg-color);
+}
+.paragraph-color {
+  color: var(--paragraph-color);
+}
+.border-color {
+  border-color: var(--border-color);
+}
+.accent-color {
+  color: var(--accent-color);
+}
+.button-hover:hover {
+  background-color: var(--button-on-hover-color);
+}
+.button-text-color {
+  color: var(--button-text-color);
+}
+.transparent-white {
+  background-color: var(--transparent-white);
+}
+.light-color {
+  background-color: var(--light-color);
+}
+.transparent-white-on-bg-color {
+  color: var(--transparent-white-on-bg-color);
+}
+
+
+:root {
+  /* Thea Solutions Brand Colors */
+  --bg-color: #1A1816;
+  --paragraph-color: #F1F1F0;
+  --border-color: #5F1F2F;
+  --accent-color: #5F1F2F;
+  --button-on-hover-color: #F1F1F0;
+  --button-text-color: #1A1816;
+  --transparent-white: #F1F1F00d;
+  --light-color: #5F1F2F;
+  --black: #181816;
+  --white: #F1F1F0;
+  --transparent-white-on-bg-color: #1A1A17;
+}
