@@ -3,7 +3,7 @@ import "./globals.css";
 import { OrganizationStructuredData, WebSiteStructuredData } from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: "Thea Solutions | Bespoke Software Development & AI Solutions for SMEs",
+  title: "Thea Solutions",
   description: "Thea Solutions specializes in bespoke software development, enterprise-grade AI, and automation solutions engineered specifically for SMEs to streamline operations and scale with confidence.",
   keywords: ["bespoke software development", "enterprise AI", "automation solutions", "SME technology", "business automation", "custom software", "AI integration"],
   authors: [{ name: "Thea Solutions" }],
