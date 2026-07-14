@@ -114,7 +114,7 @@ function Footer() {
         initial={{opacity: 0, y: 50}}
         whileInView={{opacity: 1, y: 0}}
         delay={0.5}
-        transition={{duration: 1}}
+        transition={{duration: 1}} 
         className='w-full lg:container mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row justify-between items-center gap-8'>
         <img src='/dark_tranStacked_logo.png' alt='Thea Solutions' className='h-56 md:h-64 w-auto' />
             <div className='w-fit gap-y-4 gap-x-6 text-lg flex justify-end opacity-70 flex-wrap'>
