@@ -56,14 +56,14 @@ function Footer() {
                 <Link href='/'>Contact</Link>
             </div>
             <div className='flex gap-4'>
-                <Link href='https://www.instagram.com/theasolutions_?igsh=ODc3ZmFrN2tkbDYw' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
-                    <Instagram size={24} />
+                <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
+                    <Linkedin size={24} />
                 </Link>
                 <Link href='https://www.tiktok.com/@theasolutions_?_r=1&_t=ZS-980MdkL0X9J' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
                     <TikTokIcon size={24} />
                 </Link>
-                <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
-                    <Linkedin size={24} />
+                <Link href='https://www.instagram.com/theasolutions_?igsh=ODc3ZmFrN2tkbDYw' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
+                    <Instagram size={24} />
                 </Link>
             </div>
         </motion.div>

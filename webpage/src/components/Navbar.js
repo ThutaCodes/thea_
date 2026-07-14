@@ -31,14 +31,14 @@ function Navbar() {
                 {/* <Link href='/'>Blog</Link> */}
                 <Link href='/'>Contact</Link>
                 <div className='flex gap-3 ml-4'>
-                    <Link href='https://www.instagram.com/theasolutions_?igsh=ODc3ZmFrN2tkbDYw' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
-                        <Instagram size={20} />
+                   <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
+                        <Linkedin size={20} />
                     </Link>
                     <Link href='https://www.tiktok.com/@theasolutions_?_r=1&_t=ZS-980MdkL0X9J' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
                         <TikTokIcon size={20} />
                     </Link>
-                    <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
-                        <Linkedin size={20} />
+                    <Link href='https://www.instagram.com/theasolutions_?igsh=ODc3ZmFrN2tkbDYw' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
+                        <Instagram size={20} />
                     </Link>
                 </div>
             </div>
