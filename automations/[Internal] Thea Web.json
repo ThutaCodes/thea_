@@ -1,0 +1,560 @@
+{
+  "name": "[Internal] Thea Web",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact/d946599b-734c-4fbe-8753-0f7b903a5d57",
+        "authentication": "jwtAuth",
+        "options": {
+          "ignoreBots": false,
+          "rawBody": true,
+          "responseCode": {
+            "values": {
+              "responseCode": 201
+            }
+          },
+          "responseData": "={ \"status\": \"success\" }"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2720,
+        -832
+      ],
+      "id": "2a41aebb-eb71-4ed7-8a05-be76cf00328c",
+      "name": "Webhook",
+      "webhookId": "d946599b-734c-4fbe-8753-0f7b903a5d57",
+      "credentials": {
+        "jwtAuth": {
+          "id": "6F5pOjptSdm3eF1H",
+          "name": "JWT Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1sD2VUVTKTC0SucePM1V_249Eoj4n0M-jvDR2ZUmPy7E",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Emails_to_Contact",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sD2VUVTKTC0SucePM1V_249Eoj4n0M-jvDR2ZUmPy7E/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $json.date }}",
+            "Time": "={{ $json.time }}",
+            "Email": "={{ $json.email }}",
+            "Phone": "={{ $json.phone }}"
+          },
+          "matchingColumns": [
+            "Date"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Time",
+              "displayName": "Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2272,
+        -832
+      ],
+      "id": "abcdb1e1-f84f-4221-9c45-cc8526de4b99",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iAOscujZh0tKviT5",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const email = $input.first().json.email;\n\nconst now = new Date();\n\nconst date = now.toLocaleDateString('en-CA', { \n    timeZone: 'Asia/Yangon' \n});\n\nconst time = now.toLocaleTimeString('en-US', { \n    timeZone: 'Asia/Yangon',\n    hour: '2-digit', \n    minute: '2-digit', \n    hour12: true \n});\n\nreturn [{\n  json: {\n    date: date,  \n    time: time, \n    email: $input.first().json.body[0].email,\n    phone: $input.first().json.body[0].phone\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2496,
+        -832
+      ],
+      "id": "ffba4ccd-192f-41d8-a62a-22445047799b",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "thirichannyein04@gmail.com",
+        "subject": "=New Contact Submission Via Web Bby - {{ $json.Date }}",
+        "emailType": "text",
+        "message": "=A new lead has submitted their contact information:\n\n📅 Date: {{ $json.Date }}\n⏰ Time: {{ $json.Time }}\n📧 Email: {{ $json.Email }}\n📱 Phone: {{ $json.Phone }}\n\nPlease check the Google Sheet for the full record bby<3.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -2048,
+        -928
+      ],
+      "id": "59543f7f-866e-4bb5-a7ed-d797e12ae112",
+      "name": "Send a message",
+      "webhookId": "e1794062-6054-4c3c-ab87-4edb48b8c919",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9TrLEYy5jdcpN1fI",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "1593405260",
+        "text": "=❤️ *New Contact Submission Bby!*\n\n📅 *Date:* {{ $json.Date }}\n⏰ *Time:* {{ $json.Time }}\n📧 *Email:* {{ $json.Email }}\n📱 *Phone:* {{ $json.Phone }}\nPlease check the Google Sheet for the full record Bby ❤️.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -2048,
+        -736
+      ],
+      "id": "167ffef7-f076-4299-b1e1-766612329d95",
+      "name": "Send a text message",
+      "webhookId": "3673c659-c5f1-4318-aedd-fd8c7cbbb9f3",
+      "credentials": {
+        "telegramApi": {
+          "id": "HjKD5gZ1pob7YDfd",
+          "name": "@Thea_Noti_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "\n### Record Emails to Contact in Emails_to_Contact\n",
+        "height": 416,
+        "width": 944,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2768,
+        -976
+      ],
+      "typeVersion": 1,
+      "id": "5bd3ac5c-c80d-4ffa-b80d-246740939f9c",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "### Get a Quote\n",
+        "height": 400,
+        "width": 928,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2560,
+        -368
+      ],
+      "typeVersion": 1,
+      "id": "aab142b8-8a86-4abc-9e54-1ae15496ab8c",
+      "name": "Sticky Note1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "chatId": "=1593405260",
+        "text": "=*❤️ New Contact Submission Bby!*\n\n📅 *Date:* {{ $json.Date }}\n⏰ *Time:* {{ $json.Time }}\n🏢 *Company:* {{ $json['Company Name'] }}\n👤 *Contact:* {{ $json['Contact Name'] }}\n📧 *Email:* {{ $json['Email Address'] }}\n📱 *Phone:* {{ $json[\"Mobile Phone\"] }}\n🛠 *Service:* {{ $json['Service Type'] }}\n📝 *Description:* {{ $json['Project Description'] }}\n💰 *Budget:* {{ $json['Budget Range '] }}\n📆 *Timeline:* {{ $json.Timeline }}\n\nPlease check the Get Quote sheet for the full record Bby ❤️.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1840,
+        -144
+      ],
+      "id": "2d828be6-f9f9-4ff9-8c25-6bbda271476d",
+      "name": "Send a text message1",
+      "webhookId": "3673c659-c5f1-4318-aedd-fd8c7cbbb9f3",
+      "credentials": {
+        "telegramApi": {
+          "id": "HjKD5gZ1pob7YDfd",
+          "name": "@Thea_Noti_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "thirichannyein04@gmail.com",
+        "subject": "=New Quote Request Via Web Bby - {{ $json.Date }}",
+        "emailType": "text",
+        "message": "=A new potential client has requested a quote:\n\n📅 Date: {{ $json.Date }}\n⏰ Time: {{ $json.Time }}\n🏢 Company Name: {{ $json['Company Name'] }}\n👤 Contact Name: {{ $json['Contact Name'] }}\n📧 Email Address: {{ $json['Email Address'] }}\n📱 Mobile Phone: {{ $json[\"Mobile Phone\"] }}\n🛠 Service Type: {{ $json['Service Type'] }}\n📝 Project Description: {{ $json['Project Description'] }}\n💰 Budget Range: {{ $json['Budget Range '] }}\n📆 Timeline: {{ $json.Timeline }}\n\nPlease check the Get Quote Sheet for the full record bby<3.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -1840,
+        -336
+      ],
+      "id": "585fd50b-cc70-448e-abbd-62b511ac789d",
+      "name": "Send a message1",
+      "webhookId": "e1794062-6054-4c3c-ab87-4edb48b8c919",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "9TrLEYy5jdcpN1fI",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\n\nconst now = new Date();\n\nconst date = now.toLocaleDateString('en-CA', { \n    timeZone: 'Asia/Yangon' \n});\n\nconst time = now.toLocaleTimeString('en-US', { \n    timeZone: 'Asia/Yangon',\n    hour: '2-digit', \n    minute: '2-digit', \n    hour12: true \n});\n\nreturn [{\n  json: {\n    date: date,\n    time: time,\n    companyName: $input.first().json.body[0].company || '', \n    contactName: $input.first().json.body[0].contactName|| '', \n    emailAddress: $input.first().json.body[0].email|| '',  \n    mobile: $input.first().json.body[0].phone|| '',\n    serviceType: $input.first().json.body[0].serviceType|| '',  \n    projectDescription: $input.first().json.body[0].projectDescription|| '',\n    budgetRange:  $input.first().json.body[0].budgetRange|| '',\n    timeline: $input.first().json.body[0].timeline || '' \n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2288,
+        -240
+      ],
+      "id": "4c50e4b5-f2a5-4769-9328-c45aa24f411d",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1sD2VUVTKTC0SucePM1V_249Eoj4n0M-jvDR2ZUmPy7E",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 680829825,
+          "mode": "list",
+          "cachedResultName": "Quote_Requests",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sD2VUVTKTC0SucePM1V_249Eoj4n0M-jvDR2ZUmPy7E/edit#gid=680829825"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $json.date }}",
+            "Time": "={{ $json.time }}",
+            "Company Name": "={{ $json.companyName }}",
+            "Contact Name": "={{ $json.contactName }}",
+            "Email Address": "={{ $json.emailAddress }}",
+            "Service Type": "={{ $json.serviceType }}",
+            "Project Description": "={{ $json.projectDescription }}",
+            "Budget Range ": "={{ $json.budgetRange }}",
+            "Timeline": "={{ $json.timeline }}",
+            "Mobile Phone": "={{ $json.mobile }}"
+          },
+          "matchingColumns": [
+            "Date"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Time",
+              "displayName": "Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Contact Name",
+              "displayName": "Contact Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Mobile Phone",
+              "displayName": "Mobile Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Service Type",
+              "displayName": "Service Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Project Description",
+              "displayName": "Project Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Budget Range ",
+              "displayName": "Budget Range ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timeline",
+              "displayName": "Timeline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2064,
+        -240
+      ],
+      "id": "262ed30a-903b-4a0c-80e9-50cbaae0117c",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iAOscujZh0tKviT5",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "get-a-quote/d946599b-734c-4fbe-8753-0f7b903a5d57",
+        "authentication": "jwtAuth",
+        "options": {
+          "ignoreBots": false,
+          "rawBody": true,
+          "responseCode": {
+            "values": {
+              "responseCode": 201
+            }
+          },
+          "responseData": "={ \"status\": \"success\" }"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2512,
+        -240
+      ],
+      "id": "dd19a1f4-42aa-4a78-bd3d-c5e1dfff2685",
+      "name": "Webhook1",
+      "webhookId": "d946599b-734c-4fbe-8753-0f7b903a5d57",
+      "credentials": {
+        "jwtAuth": {
+          "id": "6F5pOjptSdm3eF1H",
+          "name": "JWT Auth account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "a09b492e-183e-42b3-be05-165982317eaa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cdd2f5db338339b6a9a490b5ccf7232744048f43cb55fde4ea62949b01476989"
+  },
+  "nodeGroups": [],
+  "id": "MXgYzl01cmpVrTaP",
+  "tags": []
+}
