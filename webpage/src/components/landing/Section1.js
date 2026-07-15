@@ -46,7 +46,7 @@ function Section1() {
   };
 
   return (
-    <div className='min-h-screen relative bg-gradient-to-b from-transparent via-black/80 to-black'>
+    <div id="about" className='min-h-screen relative bg-gradient-to-b from-transparent via-black/80 to-black'>
         <video className='w-full h-full object-cover absolute -z-[1] brightness-125' autoPlay loop muted>
             <source src='./assets/videos/LandingBG.webm' type='video/webm' />
         </video>

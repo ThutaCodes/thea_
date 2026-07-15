@@ -6,32 +6,32 @@ const howWeDoIt = [
   {
     title: '1. Discovery & Strategy',
     description:
-      'We dive deep into your business goals, user needs, and technical landscape – defining a tailored roadmap that ensures alignment from day one.',
+      'We understand your business and develop a clear, strategic plan aligned with your vision for success.',
   },
   {
-    title: '2. Agile Design & Prototyping',
+    title: '2. Design & Previews',
     description:
-      'Our designers craft intuitive interfaces and interactive prototypes, iterating rapidly with your feedback to validate ideas before development.',
+      'We create interactive previews to visualize and refine your solution, ensuring it meets your expectations.',
   },
   {
-    title: '3. Development Sprints',
+    title: '3. Building in Phases',
     description:
-      'Using agile methodologies, our engineers build your solution in short, transparent sprints – delivering functional increments every two weeks.',
+      'We deliver your project in focused phases with regular updates every two weeks for full transparency.',
   },
   {
-    title: '4. Continuous Testing & QA',
+    title: '4. Testing & Quality',
     description:
-      'Automated and manual testing run throughout development, ensuring reliability, security, and performance across all devices and browsers.',
+      'We conduct thorough testing to ensure your solution is secure, reliable, and performs flawlessly.',
   },
   {
-    title: '5. Seamless Deployment',
+    title: '5. Smooth Launch',
     description:
-      'We manage your cloud infrastructure and CI/CD pipelines, deploying updates with zero downtime and full rollback capabilities.',
+      'We manage deployment for a seamless launch with zero disruption and built-in recovery safeguards.',
   },
   {
-    title: '6. Ongoing Evolution',
+    title: '6. Ongoing Growth',
     description:
-      'Post‑launch, we provide managed support, performance monitoring, and feature enhancements – helping your solution grow as your business scales.',
+      'We provide ongoing support, monitoring, and enhancements to help your solution evolve with your business.',
   },
 ];
 
@@ -47,12 +47,11 @@ function Section3() {
         <span className="text-lg accent-color">How we do it?</span>
         <p className="text-xl md:text-3xl w-full md:w-2/3 font-thin opacity-70">
           We combine remote‑first collaboration, agile delivery, and deep technical
-          expertise to turn complex challenges into elegant, reliable solutions – 
+          expertise to turn complex challenges into elegant, reliable solutions –
           always with your business outcomes at the centre.
         </p>
       </div>
 
-      {/* Optional background glow – you can keep or remove */}
       <div className="h-full w-full absolute flex items-center justify-center">
         <div className="h-64 w-64 light-color rounded-full blur-[210px]"></div>
       </div>

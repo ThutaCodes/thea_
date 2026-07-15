@@ -69,6 +69,7 @@ function Section5() {
   return (
     <>
     <motion.div 
+    id="contact"
       initial={{opacity: 0, y: 50}}
       whileInView={{opacity: 1, y: 0}}
       transition={{duration: 1}}
@@ -213,6 +214,7 @@ function Section5() {
         </div>
     </motion.div>
     <motion.div 
+    id="faqs"
       initial={{opacity: 0, y: 50}}
       whileInView={{opacity: 1, y: 0}}
       transition={{duration: 1}}
