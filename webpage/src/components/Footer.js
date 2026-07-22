@@ -1,7 +1,9 @@
+'use client'
+
 import React, { useState } from 'react'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
-import { Instagram, Linkedin } from 'lucide-react'
+import { Instagram, Linkedin, Mail } from 'lucide-react'
 
 function TikTokIcon({ size = 24, className = '' }) {
   return (
@@ -117,6 +119,7 @@ function Footer() {
         transition={{duration: 1}} 
         className='w-full lg:container mx-auto px-6 lg:px-10 py-10 flex flex-col md:flex-row justify-between items-center gap-8'>
         <img src='/dark_tranStacked_logo.png' alt='Thea Solutions' className='h-56 md:h-64 w-auto' />
+            <div className='flex flex-col items-center gap-5 md:items-start'>
             <div className='w-fit gap-y-4 gap-x-6 text-lg flex justify-end opacity-70 flex-wrap'>
                 {/* <Link href='/'>About</Link>
                 <Link href='/'>Services</Link>
@@ -125,10 +128,16 @@ function Footer() {
                 {/* <Link href='/'>FAQ</Link> */}
                 {/* <Link href='/'>Blog</Link> */}
                 {/* <Link href='/'>Contact</Link> */}
-                <Link href="#about">About</Link>
-                <Link href="#services">Services</Link>
-                <Link href="#faqs">FAQ</Link>
-                <Link href="#contact">Contact</Link>
+                <Link href="/#about">About</Link>
+                <Link href="/#services">Services</Link>
+                <Link href="/#faqs">FAQ</Link>
+                <Link href="/#contact">Contact</Link>
+                <Link href="/careers">Careers</Link>
+            </div>
+            <a href='mailto:business@theasolutions.co' className='flex items-center gap-2 opacity-70 transition-opacity hover:opacity-100'>
+              <Mail size={18} aria-hidden='true' />
+              business@theasolutions.co
+            </a>
             </div>
             <div className='flex gap-4'>
                 <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>

@@ -31,11 +31,10 @@ export async function GET() {
         "Cloud integration"
       ],
       contact: {
-        "email": "contact@theasolutions.co",
-        "phone": "+1-555-123-4567",
+        "email": "business@theasolutions.co",
         "website": "https://theasolutions.co"
       },
-      availability: "Monday - Friday, 9:00 AM - 6:00 PM EST",
+      availability: "Monday - Friday, 9:00 AM - 6:00 PM ASEAN business hours",
       responseTime: "Within 24 business hours",
       languages: ["English"],
       pricing: "Custom pricing based on project scope"

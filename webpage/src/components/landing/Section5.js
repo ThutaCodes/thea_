@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {motion} from 'framer-motion'
+import { Mail } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -86,6 +87,15 @@ function Section5() {
             <div className='text-base md:text-lg w-full font-thin opacity-70 line-clamp-4'>
               Tell us about your project requirements and we'll provide a tailored quotation for your custom software, AI, or automation needs.
             </div>
+            <a href='mailto:sales@theasolutions.co' className='group mt-3 flex items-center gap-3 rounded-xl border border-color transparent-white p-4 transition-colors hover:bg-white/10'>
+              <span className='flex h-10 w-10 items-center justify-center rounded-full bg-[#5F1F2F]'>
+                <Mail size={18} aria-hidden='true' />
+              </span>
+              <span className='min-w-0'>
+                <span className='block text-sm opacity-60'>Sales &amp; project inquiries</span>
+                <span className='block break-all text-base group-hover:underline'>sales@theasolutions.co</span>
+              </span>
+            </a>
         </div>
         <div className='w-full lg:w-2/3 border border-color backdrop-blur-xl transparent-white flex flex-col gap-y-4 p-4 md:p-8'>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4'>

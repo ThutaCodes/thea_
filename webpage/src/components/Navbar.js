@@ -23,13 +23,14 @@ function Navbar() {
         <div className='bg-black/50 backdrop-blur-xl w-[95%] py-1 px-6 md:px-10 flex items-center justify-between rounded-xl border border-color'>
             <img src='/dark_tranStacked_logo.png' alt='Thea Solutions' className='h-24 md:h-28 w-auto' />
             <div className='w-fit hidden items-center gap-y-4 gap-x-6 text-lg md:flex'>
-                <Link href='#about'>About</Link>
-                <Link href='#services'>Services</Link>
+                <Link href='/#about'>About</Link>
+                <Link href='/#services'>Services</Link>
                 {/* <Link href='/'>Pricing</Link> */}
                 {/* <Link href='/'>Testimonials</Link> */}
-                <Link href='#faqs'>FAQ</Link>
+                <Link href='/#faqs'>FAQ</Link>
                 {/* <Link href='/'>Blog</Link> */}
-                <Link href='#contact'>Contact</Link>
+                <Link href='/#contact'>Contact</Link>
+                <Link href='/careers'>Careers</Link>
                 <div className='flex gap-3 ml-4'>
                    <Link href='https://www.linkedin.com/company/theasolutionss' target='_blank' rel='noopener noreferrer' className='hover:opacity-100 opacity-70 transition-opacity'>
                         <Linkedin size={20} />

@@ -23,8 +23,8 @@ export function OrganizationStructuredData() {
     description: 'Thea Solutions specializes in bespoke software development, enterprise-grade AI, and automation solutions engineered specifically for SMEs to streamline operations and scale with confidence.',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-555-123-4567',
-      contactType: 'customer service',
+      email: 'business@theasolutions.co',
+      contactType: 'business inquiries',
       availableLanguage: 'English',
     },
     sameAs: [
