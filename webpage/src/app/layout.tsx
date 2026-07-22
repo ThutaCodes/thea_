@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { OrganizationStructuredData, WebSiteStructuredData } from '@/components/StructuredData';
+import Analytics from '@/components/Analytics';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://theasolutions.co") || "http://localhost:3000",
@@ -64,6 +66,9 @@ export default function RootLayout({
       <body className={`antialiased bg-color paragraph-color`} >
         <OrganizationStructuredData />
         <WebSiteStructuredData />
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
         {children}
       </body>
     </html>
