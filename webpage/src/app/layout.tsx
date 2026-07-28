@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     images: ["/dark_tranStacked_logo.png"],
   },
   verification: {
-    google: "google-verification-code",
+    google: "xD5KF2iUPieQIWeYovvceRmKSydkyTYxiYECUUVTpaM",
   },
 };
 
