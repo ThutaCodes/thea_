@@ -4,11 +4,6 @@ import { ArrowLeft, ArrowUpRight, Mail } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-export const metadata: Metadata = {
-  title: 'Careers | Thea Solutions',
-  description: 'Explore career opportunities and open roles at Thea Solutions.',
-};
-
 const jobOpenings: Array<{
   title: string;
   level: string;
@@ -160,7 +155,34 @@ const jobOpenings: Array<{
       "Collaborate with consultants and implementation teams to deliver accurate proposals and smooth handovers"
     ]
   }
-]
+];
+
+export const metadata: Metadata = {
+  title: 'Careers | Thea Solutions',
+  description: 'Explore career opportunities and open roles at Thea Solutions. Join our team and build thoughtful technology with us.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://theasolutions.co/careers',
+    title: 'Careers at Thea Solutions | Build Thoughtful Technology With Us',
+    description: `Join our team! We have ${jobOpenings.length} open positions including Backend Engineer, Frontend Engineer, AI Engineer, and more. Remote/APAC opportunities available.`,
+    siteName: 'Thea Solutions',
+    images: [
+      {
+        url: '/dark_tranStacked_logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thea Solutions Careers',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Careers at Thea Solutions | Build Thoughtful Technology With Us',
+    description: `Join our team! We have ${jobOpenings.length} open positions including Backend Engineer, Frontend Engineer, AI Engineer, and more. Remote/APAC opportunities available.`,
+    images: ['/dark_tranStacked_logo.png'],
+  },
+};
 
 export default function CareersPage() {
   return (
